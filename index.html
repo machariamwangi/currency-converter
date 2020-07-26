@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+	<div class="col-md-3"></div>
+	<div class="col-md-6 well">
+		<h3 class="text-primary">A Currency converter To Nigerian Naira (NGN)</h3>
+		<hr style="border-top:1px dotted #ccc;">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h4>Converter</h4>
+			<hr style="border-top:1px groovy #ccc;" />
+			<div class="form-group">
+				<select onchange="Currency(); Calculate()" class="form-control" id="converter" style="width:30%;">
+					<option value="Dollar">Dollar</option>
+					<option value="Pound">Pound</option>
+					<option value="Euro">Euro</option>
+					<option value="Yen">Yen</option>
+					<option value="Yuan">Yuan</option>
+				</select>
+				<br />
+				<input type="number" oninput="Calculate()" class="form-control" id="value1" />
+			</div>
+			<br /><br />
+			<div class="form-group">
+				<label>Nigerian Naira (NGN)</label>
+				<input type="number" class="form-control" id="value2" disabled="disabled" />
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	function Currency() {
+		y = document.getElementById("converter").value;
+		return y;
+	}
+
+	function Calculate() {
+		y = Currency();
+
+		x = document.getElementById("value1").value;
+
+		if (x == "") {
+			document.getElementById("value2").value = "";
+		} else {
+			switch (y) {
+				case "Dollar":
+					document.getElementById("value2").value = x * 383.94;
+					break;
+
+				case "Pound":
+					document.getElementById("value2").value = x * 24.044;
+					break;
+
+				case "Euro":
+					document.getElementById("value2").value = x * 447.50;
+					break;
+
+				case "Yen":
+					document.getElementById("value2").value = x * 3.6219;
+					break;
+
+				case "Yuan":
+					document.getElementById("value2").value = x * 8.20;
+					break;
+			}
+		}
+	}
+</script>
+
+</html>
